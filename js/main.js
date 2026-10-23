@@ -1,5 +1,5 @@
 /**
- * DON CHAMY (@donchamy.oficial) - Interacciones UI/UX
+ * EL HONESTO PARRA (@elhonestoparra) - Interacciones UI/UX
  * Archivo: js/main.js
  */
 
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. Indicador dinámico de horario de atención (Zona horaria: Santiago de Chile)
+  // Horario El Honesto Parra: Lunes a Domingo de 17:30 a 23:30 hrs
   const statusPill = document.getElementById('open-status');
   const statusText = document.getElementById('open-status-text');
 
@@ -33,41 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const now = new Date();
       const formatter = new Intl.DateTimeFormat('en-US', {
         timeZone: 'America/Santiago',
-        weekday: 'short',
         hour: 'numeric',
         minute: 'numeric',
         hour12: false,
       });
 
       const parts = formatter.formatToParts(now);
-      const dayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-      const weekdayStr = parts.find((p) => p.type === 'weekday')?.value || 'Mon';
-      const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '12', 10);
-      const day = dayMap[weekdayStr] ?? 1;
+      const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '18', 10);
+      const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10);
+      const totalMinutes = hour * 60 + minute;
 
-      let isOpen = false;
-
-      // Horarios reales de Don Chamy:
-      // Lun-Jue: 10:00 a 03:00 | Vie-Sáb: 10:00 a 05:00 | Dom: 18:00 a 03:00
-      if (day >= 1 && day <= 4) {
-        isOpen = hour >= 10 || hour < 3;
-      } else if (day === 5) {
-        isOpen = hour >= 10 || hour < 3;
-      } else if (day === 6) {
-        isOpen = hour >= 10 || hour < 5;
-      } else if (day === 0) {
-        isOpen = hour >= 18 || hour < 5;
-      }
+      // 17:30 (1050 min) a 23:30 (1410 min)
+      const isOpen = totalMinutes >= 17 * 60 + 30 && totalMinutes <= 23 * 60 + 30;
 
       if (isOpen) {
         statusPill.classList.remove('closed');
-        statusText.textContent = 'Abierto ahora · Delivery disponible';
+        statusText.textContent = 'Abierto ahora · 17:30 a 23:30 hrs';
       } else {
         statusPill.classList.add('closed');
-        statusText.textContent = 'Cerrado en este momento';
+        statusText.textContent = 'Abre hoy de 17:30 a 23:30 hrs';
       }
     } catch {
-      statusText.textContent = 'Delivery todos los días';
+      statusText.textContent = 'Atención de 17:30 a 23:30 hrs';
     }
   }
 });

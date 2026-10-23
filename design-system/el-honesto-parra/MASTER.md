@@ -6,9 +6,9 @@
 
 ---
 
-**Project:** Don Chamy
-**Generated:** 2026-10-23 19:23:18
-**Category:** Restaurant/Food Service
+**Project:** El Honesto Parra
+**Generated:** 2026-10-23 19:33:21
+**Category:** General
 
 ---
 
@@ -39,14 +39,14 @@
 
 ### Typography
 
-- **Heading Font:** Playfair Display SC
-- **Body Font:** Karla
-- **Mood:** restaurant, menu, culinary, elegant, foodie, hospitality
-- **Google Fonts:** [Playfair Display SC + Karla](https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap)
+- **Heading Font:** Outfit
+- **Body Font:** Work Sans
+- **Mood:** geometric, modern, clean, balanced, contemporary, versatile
+- **Google Fonts:** [Outfit + Work Sans](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap)
 
 **CSS Import:**
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap');
 ```
 
 ### Spacing Variables
@@ -164,28 +164,26 @@
 
 ## Style Guidelines
 
-**Style:** Vibrant & Block-based
+**Style:** Minimalism & Swiss Style
 
-**Keywords:** Bold, energetic, playful, block layout, geometric shapes, high color contrast, duotone, modern, energetic
+**Keywords:** Clean, simple, spacious, functional, white space, high contrast, geometric, sans-serif, grid-based, essential
 
-**Best For:** Startups, creative agencies, gaming, social media, youth-focused, entertainment, consumer
+**Best For:** Enterprise apps, dashboards, documentation sites, SaaS platforms, professional tools
 
-**Key Effects:** Large sections (48px+ gaps), animated patterns, bold hover (color shift), scroll-snap, large type (32px+), 200-300ms
+**Key Effects:** Subtle hover (200-250ms), smooth transitions, sharp shadows if any, clear type hierarchy, fast loading
 
 ### Page Pattern
 
-**Pattern Name:** Funnel (3-Step Conversion)
+**Pattern Name:** Hero + Features + CTA
 
-- **Conversion Strategy:** Progressive disclosure. Show only essential info per step. Use progress indicators. Multiple CTAs.
-- **CTA Placement:** Each step: mini-CTA. Final: main CTA
-- **Section Order:** Hero > Step 1 (problem) > Step 2 (solution) > Step 3 (action) > CTA progression
+- **Conversion Strategy:** Deep CTA placement. For CTA label text, verify at least 4.5:1 against the button fill; use 7:1 only when the product explicitly targets AAA normal-text contrast. Keep focus and component boundaries independently visible. Disable hero parallax under reduced motion and render its static final state.
+- **CTA Placement:** Hero (sticky) + Bottom
+- **Section Order:** Hero with headline/image > Value prop > Key features (3-5) > CTA section > Footer
 
 ---
 
 ## Anti-Patterns (Do NOT Use)
 
-- ❌ Low-quality imagery
-- ❌ Outdated hours
 
 ### Additional Forbidden Patterns
 

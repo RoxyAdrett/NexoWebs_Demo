@@ -1,11 +1,11 @@
 /* ==========================================================================
-   DON CHAMY (@donchamy.oficial) - SISTEMA DE DISEÑO UI/UX PRO MAX
+   EL HONESTO PARRA (@elhonestoparra) - SISTEMA DE DISEÑO UI/UX PRO MAX
    Archivo: css/styles.css
-   Generado con: UI/UX Pro Max (design-system/don-chamy/MASTER.md)
-   Propósito: Estilos modulares, genéricos y 100% personalizables.
+   Generado con: UI/UX Pro Max (design-system/el-honesto-parra/MASTER.md)
+   Propósito: Estilos modulares, limpios y 100% personalizables.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* Paleta de Colores (Personalizable en un solo lugar) */
@@ -14,7 +14,7 @@
   --color-on-primary: #FFFFFF;
   --color-secondary: #F87171;        /* Rojo coral suave */
   --color-on-secondary: #0F172A;
-  --color-accent: #A16207;           /* Dorado cálido / mostaza artesanal */
+  --color-accent: #A16207;           /* Dorado cheddar / mostaza artesanal */
   --color-accent-hover: #854D0E;
   --color-on-accent: #FFFFFF;
   --color-background: #FEF2F2;       /* Fondo cálido suave */
@@ -22,16 +22,16 @@
   --color-foreground: #450A0A;       /* Texto principal (alto contraste > 10:1) */
   --color-card: #FFFFFF;
   --color-card-foreground: #450A0A;
-  --color-muted: #F8FAFC;
+  --color-muted: #F0EDF1;
   --color-muted-foreground: #475569; /* Texto secundario (contraste > 5.5:1) */
   --color-border: #FECACA;
   --color-ring: #DC2626;
   --color-whatsapp: #15803D;         /* Verde accesible para botón WhatsApp */
   --color-whatsapp-hover: #166534;
 
-  /* Tipografía */
-  --font-heading: 'Playfair Display SC', Georgia, serif;
-  --font-body: 'Karla', system-ui, -apple-system, sans-serif;
+  /* Tipografía UI/UX Pro Max (Outfit + Work Sans) */
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
 
   /* Espaciado (Escala UI/UX Pro Max) */
   --space-xs: 0.25rem;   /* 4px */
@@ -161,10 +161,11 @@ button {
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(1.85rem, 4vw, 2.75rem);
-  line-height: 1.2;
+  font-weight: 800;
+  line-height: 1.18;
   color: var(--color-foreground);
   margin-bottom: var(--space-md);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
 .section-subtitle {
@@ -282,8 +283,8 @@ button {
   display: grid;
   place-items: center;
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: 800;
+  font-size: 1.15rem;
 }
 
 .brand-text {
@@ -293,7 +294,7 @@ button {
 
 .brand-name {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.25rem;
   line-height: 1.1;
   color: var(--color-foreground);
@@ -433,6 +434,7 @@ button {
 
 .landing-slot h1 {
   font-family: var(--font-heading);
+  font-weight: 800;
   font-size: clamp(2rem, 4.5vw, 3.25rem);
   line-height: 1.15;
   margin-bottom: var(--space-md);
@@ -488,6 +490,7 @@ button {
 
 .story-content h3 {
   font-family: var(--font-heading);
+  font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: var(--color-foreground);
   margin-bottom: var(--space-md);
@@ -589,7 +592,7 @@ button {
 }
 
 /* ==========================================================================
-   ESTADÍSTICAS / HITOS DEL NEGOCIO (Bloques Vibrantes)
+   ESTADÍSTICAS / HITOS DEL NEGOCIO
    ========================================================================== */
 .stats-grid {
   display: grid;
@@ -617,7 +620,7 @@ button {
   display: block;
   font-family: var(--font-heading);
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-primary);
   line-height: 1.1;
   margin-bottom: var(--space-xs);
@@ -683,6 +686,7 @@ button {
 
 .pillar-card h3 {
   font-family: var(--font-heading);
+  font-weight: 700;
   font-size: 1.35rem;
   margin-bottom: var(--space-sm);
   color: var(--color-foreground);
@@ -694,7 +698,7 @@ button {
 }
 
 /* ==========================================================================
-   SELLOS DE LA CASA / ESPECIALIDADES (@donchamy.oficial)
+   SELLOS DE LA CASA / ESPECIALIDADES (@elhonestoparra)
    ========================================================================== */
 .specialties-section {
   padding-block: var(--space-3xl);
@@ -758,6 +762,7 @@ button {
 
 .specialty-body h3 {
   font-family: var(--font-heading);
+  font-weight: 700;
   font-size: 1.4rem;
   margin-bottom: var(--space-sm);
   color: var(--color-foreground);
@@ -814,6 +819,7 @@ button {
   align-items: center;
   gap: var(--space-sm);
   font-family: var(--font-heading);
+  font-weight: 700;
   font-size: 1.4rem;
   color: var(--color-foreground);
 }
