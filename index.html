@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es-CL" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Honesto Parra (@elhonestoparra) | Sobre Nosotros · Hamburguesas Caseras y Papas Supremas</title>
-  <meta name="description" content="Conoce la historia de El Honesto Parra (@elhonestoparra) en Río Los Baños #459, Puente Alto. Especialistas en hamburguesas caseras como La Americana y La Pobre, Papas Supremas, salchipapas y bajón de verdad." />
+  <title>El Honesto Parra (@elhonestoparra) | Inicio &amp; Sobre Nosotros · Puente Alto</title>
+  <meta name="description" content="Conoce El Honesto Parra (@elhonestoparra) en Río Los Baños #459, Puente Alto. Especialistas en hamburguesas caseras como La Americana y La Pobre, Papas Supremas XL, salchipapas y bajón honesto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <!-- Accesibilidad: Saltar al contenido principal -->
-  <a href="#sobre-nosotros" class="skip-link">Saltar a Sobre Nosotros</a>
+  <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Barra Superior de Estado y Horario en Vivo -->
+  <aside class="status-top-bar" aria-label="Aviso de atención y pedidos">
+    <div class="container status-top-bar__inner">
+      <div class="status-indicator-wrap">
+        <span id="top-open-dot" class="status-dot-pulse" aria-hidden="true"></span>
+        <span id="top-open-text"><strong>Horario de Atención:</strong> Lunes a Domingo de 17:30 a 23:30 hrs · Río Los Baños #459, Puente Alto</span>
+      </div>
+      <div class="status-top-bar__links">
+        <a href="carta.html" class="top-social-link">Ir a la Carta Digital →</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.instagram.com/elhonestoparra/?hl=es" target="_blank" rel="noopener noreferrer" class="top-social-link">
+          @elhonestoparra
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <!-- ========================================================================
-       ENCABEZADO / NAVBAR COMPARTIDO (LANDING + SOBRE NOSOTROS)
+       ENCABEZADO / NAVBAR COMPARTIDO
        ======================================================================== -->
   <header class="site-header">
     <div class="container navbar">
-      <a href="#inicio" class="brand-logo" aria-label="El Honesto Parra - Inicio">
+      <a href="index.html#inicio" class="brand-logo" aria-label="El Honesto Parra - Inicio">
         <span class="brand-icon" aria-hidden="true">HP</span>
         <span class="brand-text">
           <span class="brand-name">El Honesto Parra</span>
@@ -24,86 +44,82 @@
         </span>
       </a>
 
-      <nav aria-label="Navegación principal">
+      <nav aria-label="Navegación principal" class="desktop-nav">
         <ul class="nav-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#sobre-nosotros" class="active">Sobre Nosotros</a></li>
-          <li><a href="#pilares">Nuestra Filosofía</a></li>
-          <li><a href="#especialidades">Especialidades</a></li>
-          <li><a href="#ubicacion-horarios">Horarios y Contacto</a></li>
+          <li><a href="#inicio" class="nav-link is-highlight" aria-current="page">Inicio</a></li>
+          <li><a href="#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
+          <li><a href="#pilares" class="nav-link">Nuestra Filosofía</a></li>
+          <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+          <li><a href="#ubicacion-horarios" class="nav-link">Horarios y Contacto</a></li>
+          <li><a href="carta.html" class="nav-link nav-link--cta">Ver Carta Digital</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a
-          href="https://www.instagram.com/elhonestoparra/?hl=es"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary"
-          aria-label="Visitar Instagram oficial de El Honesto Parra"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+        <!-- Acceso directo a la Página de la Carta con contador de pedido si existe -->
+        <a href="carta.html" class="btn btn-primary header-cart-btn" aria-label="Ir a la Carta Digital y armar tu pedido">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path>
+            <path d="M7 2v20"></path>
+            <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path>
           </svg>
-          <span>Instagram</span>
+          <span>Ver Carta &amp; Pedir</span>
+          <span id="headerCartCount" class="badge-pill" aria-hidden="true">0</span>
         </a>
-        <a
-          href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-whatsapp"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <span>Pedir por WhatsApp</span>
-        </a>
-      </div>
 
-      <!-- Botón Menú Móvil -->
-      <button
-        type="button"
-        id="menu-toggle"
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Abrir menú de navegación"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+        <!-- Botón WhatsApp Directo -->
+        <a
+          href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20una%20consulta"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp nav-wa-btn"
+          aria-label="Hablar por WhatsApp con El Honesto Parra"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 9.44 9.45c0 5.2-4.24 9.43-9.45 9.43m8.04-17.47A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.7l6.1-1.6a11.3 11.3 0 0 0 5.36 1.37h.01c6.26 0 11.36-5.1 11.37-11.37a11.3 11.3 0 0 0-3.33-8.04" />
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Botón Menú Móvil -->
+        <button
+          type="button"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú de navegación"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
 
-    <!-- Menú Móvil -->
+    <!-- Menú Móvil Desplegable -->
     <div id="mobile-menu" class="mobile-menu">
       <ul>
-        <li><a href="#inicio">Inicio (Landing Page)</a></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="carta.html">Carta Digital &amp; Pedidos Online</a></li>
         <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
         <li><a href="#pilares">Nuestra Filosofía</a></li>
         <li><a href="#especialidades">Especialidades</a></li>
         <li><a href="#ubicacion-horarios">Horarios y Contacto</a></li>
       </ul>
-      <div class="cta-group">
+      <div class="mobile-menu-ctas">
+        <a href="carta.html" class="btn btn-primary btn-block">
+          Ver Carta Digital y Armar Pedido
+        </a>
         <a
           href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-whatsapp"
+          class="btn btn-whatsapp btn-block"
         >
-          Pedir por WhatsApp
-        </a>
-        <a
-          href="https://www.instagram.com/elhonestoparra/?hl=es"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary"
-        >
-          @elhonestoparra
+          WhatsApp Directo (+56 9 7688 1140)
         </a>
       </div>
     </div>
@@ -111,49 +127,69 @@
 
   <main>
     <!-- ======================================================================
-         INICIO: BLOQUE RESERVADO PARA EL LANDING PAGE DEL COMPAÑERO
-         Nota para el equipo: Reemplazar el contenido dentro de <section id="inicio">
-         con el código del Landing Page principal cuando esté listo.
+         HERO PRINCIPAL DE BIENVENIDA (#inicio)
          ====================================================================== -->
-    <section id="inicio" class="landing-slot" aria-label="Sección inicial reservada para Landing Page">
-      <div class="container">
-        <div class="landing-slot-inner">
-          <span class="landing-slot-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="3" y1="9" x2="21" y2="9"></line>
-              <line x1="9" y1="21" x2="9" y2="9"></line>
-            </svg>
-            Espacio Modular · Landing Page Principal
-          </span>
-          <h1>El Honesto Parra · Hamburguesas Caseras &amp; Bajón Honesto</h1>
-          <p>
-            Esta sección superior (<code>#inicio</code>) está preparada para integrar el <strong>Landing Page</strong> que está desarrollando tu compañero en esta misma página. Desliza hacia abajo para revisar la sección completa de <strong>Sobre Nosotros</strong>.
+    <section id="inicio" class="hero-strip" aria-labelledby="hero-heading">
+      <div class="container hero-strip__grid">
+        <div class="hero-strip__content">
+          <div class="hero-strip__eyebrow">
+            <span class="chip chip--highlight">PUENTE ALTO · RÍO LOS BAÑOS #459</span>
+            <span class="hero-strip__steps">Sabor Casero · Porciones Abundantes</span>
+          </div>
+          <h1 id="hero-heading" class="hero-strip__title">
+            El Honesto Parra: Hamburguesas Caseras &amp; Bajón de Verdad.
+          </h1>
+          <p class="hero-strip__subtitle">
+            Nacimos en Puente Alto con una promesa simple: porciones honestas, medallones caseros preparados al momento, Papas Supremas XL bañadas en cheddar y tocino, y atención cercana todas las tardes y noches.
           </p>
-          <div class="landing-slot-actions">
-            <a href="#sobre-nosotros" class="btn btn-accent">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
+          <div class="hero-strip__actions">
+            <a href="carta.html" class="btn btn-primary btn-lg">
+              <span>Ir a la Carta Digital y Pedir</span>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-              <span>Ver Sección Sobre Nosotros</span>
             </a>
-            <a
-              href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <span>Pedir Ahora (+56 9 7688 1140)</span>
+            <a href="#sobre-nosotros" class="btn btn-secondary btn-lg">
+              <span>Conoce Nuestro Local</span>
             </a>
           </div>
         </div>
+
+        <!-- Tarjeta Destacada con Acceso a la Carta -->
+        <aside class="promo-spotlight" aria-label="Acceso rápido a nuestras especialidades">
+          <div class="promo-spotlight__badge">FAVORITO DE PUENTE ALTO</div>
+          <div class="promo-spotlight__body">
+            <div class="promo-spotlight__visual" aria-hidden="true">
+              <svg viewBox="0 0 100 100" class="food-illustration" role="img" aria-hidden="true">
+                <circle cx="50" cy="50" r="45" fill="currentColor" opacity="0.12" />
+                <path d="M22 46 C22 28, 78 28, 78 46 Z" fill="#D97706" />
+                <circle cx="36" cy="36" r="2" fill="#FEF3C7" />
+                <circle cx="50" cy="33" r="2" fill="#FEF3C7" />
+                <circle cx="64" cy="37" r="2" fill="#FEF3C7" />
+                <path d="M18 50 Q28 45 38 50 T58 50 T78 50" stroke="#16A34A" stroke-width="4.5" fill="none" stroke-linecap="round" />
+                <rect x="20" y="53" width="60" height="9" rx="4.5" fill="#78350F" />
+                <polygon points="26,53 38,60 50,53" fill="#FACC15" />
+                <polygon points="52,53 64,60 74,53" fill="#FACC15" />
+                <rect x="20" y="63" width="60" height="8" rx="4" fill="#451A03" />
+                <rect x="22" y="73" width="56" height="10" rx="5" fill="#B45309" />
+              </svg>
+            </div>
+            <div class="promo-spotlight__info">
+              <h2 class="promo-spotlight__title">Hamburguesa "La Americana"</h2>
+              <p class="promo-spotlight__desc">Medallón casero artesanal, aros de cebolla crocantes, queso cheddar fundido, tocino crujiente y salsa BBQ. Personalízala en nuestra carta online y envía tu recibo a WhatsApp.</p>
+              <div class="promo-spotlight__footer">
+                <div class="price-block">
+                  <span class="price-block__current">$7.490</span>
+                </div>
+                <a href="carta.html?item=hamburguesa-la-americana" class="btn btn-primary btn-sm">
+                  Pedir en la Carta →
+                </a>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
-    <!-- FIN: BLOQUE RESERVADO PARA LANDING PAGE -->
 
     <!-- ======================================================================
          SECCIÓN PRINCIPAL: SOBRE NOSOTROS (#sobre-nosotros)
@@ -208,26 +244,26 @@
             </ul>
 
             <div class="cta-group">
+              <a href="carta.html" class="btn btn-primary">
+                <span>Explorar toda la Carta Digital</span>
+              </a>
               <a
                 href="https://www.instagram.com/elhonestoparra/?hl=es"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="btn btn-primary"
+                class="btn btn-secondary"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                 </svg>
                 <span>Síguenos en @elhonestoparra</span>
               </a>
-              <a href="#ubicacion-horarios" class="btn btn-secondary">
-                <span>Ver Ubicación y Horarios</span>
-              </a>
             </div>
           </div>
 
-          <!-- Bloque Visual Personalizable (Fácil de reemplazar por foto del local o de Instagram) -->
+          <!-- Bloque Visual de Identidad Local -->
           <aside class="story-showcase-card" aria-label="Espacio visual de El Honesto Parra">
             <div class="showcase-image-placeholder">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -264,13 +300,13 @@
           <article class="stat-card">
             <span class="stat-number">XL</span>
             <h3 class="stat-label">Papas Supremas</h3>
-            <p class="stat-desc">Famosas por su combinación generosa de queso cheddar, tocino y tomate.</p>
+            <p class="stat-desc">Famosas por su combinación generosa de queso cheddar, tocino y tomate fresco.</p>
           </article>
 
           <article class="stat-card">
-            <span class="stat-number">Directo + Apps</span>
-            <h3 class="stat-label">Delivery Rápido</h3>
-            <p class="stat-desc">Pide directo por WhatsApp o encuéntranos en plataformas como Rappi.</p>
+            <span class="stat-number">Directo</span>
+            <h3 class="stat-label">Recibo WhatsApp</h3>
+            <p class="stat-desc">Arma tu pedido en nuestra carta web y envíalo listo al WhatsApp del local.</p>
           </article>
         </div>
       </div>
@@ -282,10 +318,10 @@
     <section id="pilares" class="pillars-section" aria-labelledby="pillars-heading">
       <div class="container">
         <div class="about-header">
-          <span class="section-badge">Nuestra Filosofía</span>
-          <h2 id="pillars-heading" class="section-title">¿Por Qué Nos Llaman "El Honesto"?</h2>
+          <span class="section-badge">Nuestra Promesa</span>
+          <h2 id="pillars-heading" class="section-title">Los Pilares de El Honesto Parra</h2>
           <p class="section-subtitle">
-            Tres principios que guían cada orden que preparamos en nuestra cocina de Río Los Baños #459.
+            Cuatro razones por las que nuestros clientes vuelven una y otra vez por su bajón favorito.
           </p>
         </div>
 
@@ -293,12 +329,20 @@
           <article class="pillar-card">
             <div class="pillar-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path>
-                <path d="M8.5 8.5v.01"></path>
-                <path d="M16 15.5v.01"></path>
-                <path d="M12 12v.01"></path>
-                <path d="M11 17v.01"></path>
-                <path d="M7 14v.01"></path>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+            </div>
+            <h3>Sabor Casero Sin Trucos</h3>
+            <p>
+              Carne 100% de vacuno sazonada en casa, vegetales seleccionados del día y salsas elaboradas con nuestra receta secreta.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
               </svg>
             </div>
             <h3>Honestidad en Cada Porción</h3>
@@ -346,7 +390,7 @@
           <span class="section-badge">Nuestros Favoritos</span>
           <h2 id="specialties-heading" class="section-title">Las Especialidades de El Honesto Parra</h2>
           <p class="section-subtitle">
-            Conoce las preparaciones más pedidas por nuestra comunidad (sección modular y personalizable para conectar con el menú del Landing Page).
+            Conoce las preparaciones más pedidas por nuestra comunidad y ábrelas directamente en nuestra Carta Digital para personalizarlas.
           </p>
         </div>
 
@@ -360,10 +404,17 @@
               </svg>
             </div>
             <div class="specialty-body">
-              <h3>"La Americana" &amp; "La Pobre"</h3>
-              <p>
-                Nuestras hamburguesas caseras estrella: <strong>La Americana</strong> (con aros de cebolla, queso cheddar, tocino y salsa BBQ) y <strong>La Pobre</strong> (con queso fundido, aros de cebolla y huevos fritos).
-              </p>
+              <div>
+                <h3>"La Americana" &amp; "La Pobre"</h3>
+                <p>
+                  Nuestras hamburguesas caseras estrella: <strong>La Americana</strong> (con aros de cebolla, queso cheddar, tocino y salsa BBQ) y <strong>La Pobre</strong> (con queso fundido, aros de cebolla y huevos fritos).
+                </p>
+              </div>
+              <div class="specialty-action">
+                <a href="carta.html?cat=burgers" class="btn btn-secondary btn-sm">
+                  Ver Hamburguesas en la Carta →
+                </a>
+              </div>
             </div>
           </article>
 
@@ -376,10 +427,17 @@
               </svg>
             </div>
             <div class="specialty-body">
-              <h3>Papas "La Suprema" &amp; "La Mediterránea"</h3>
-              <p>
-                Papas fritas doradas y crujientes coronadas con abundante queso cheddar fundido, tocino crocante y tomate fresco, además de nuestras clásicas salchipapas.
-              </p>
+              <div>
+                <h3>Papas "La Suprema" &amp; "La Mediterránea"</h3>
+                <p>
+                  Papas fritas doradas y crujientes coronadas con abundante queso cheddar fundido, tocino crocante y tomate fresco picado, además de nuestras clásicas salchipapas.
+                </p>
+              </div>
+              <div class="specialty-action">
+                <a href="carta.html?cat=papas" class="btn btn-secondary btn-sm">
+                  Ver Papas &amp; Bajón en la Carta →
+                </a>
+              </div>
             </div>
           </article>
 
@@ -394,10 +452,17 @@
               </svg>
             </div>
             <div class="specialty-body">
-              <h3>Pollo Frito, Hot Dogs y Empanadas</h3>
-              <p>
-                Variedad para todos los gustos: pollo frito crujiente, perros calientes (hot dogs), sándwiches caseros y empanadas de queso recién fritas.
-              </p>
+              <div>
+                <h3>Pollo Frito, Hot Dogs y Empanadas</h3>
+                <p>
+                  Variedad para todos los gustos: pollo frito crujiente con especias, hot dogs italianos gigantes, sándwiches caseros y empanadas de queso recién fritas.
+                </p>
+              </div>
+              <div class="specialty-action">
+                <a href="carta.html?cat=clasicos" class="btn btn-secondary btn-sm">
+                  Ver Clásicos en la Carta →
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -413,7 +478,7 @@
           <span class="section-badge">Encuéntranos en Puente Alto</span>
           <h2 id="info-heading" class="section-title">Horarios, Ubicación y Pedidos</h2>
           <p class="section-subtitle">
-            Haz tu pedido directamente por WhatsApp, visítanos en nuestro local o búscanos en tu app de delivery favorita.
+            Arma tu pedido en nuestra Carta Digital con envío directo a WhatsApp, visítanos en nuestro local o encuéntranos en tu app de delivery favorita.
           </p>
         </div>
 
@@ -489,7 +554,7 @@
                 <div class="contact-details">
                   <strong>WhatsApp y Teléfono de Contacto</strong>
                   <span>
-                    <a href="https://wa.me/56976881140">+56 9 7688 1140</a>
+                    <a href="https://wa.me/56976881140" target="_blank" rel="noopener noreferrer">+56 9 7688 1140</a>
                   </span>
                 </div>
               </li>
@@ -512,14 +577,17 @@
             </ul>
 
             <div class="cta-group">
+              <a href="carta.html" class="btn btn-primary">
+                <span>Abrir Carta Digital</span>
+              </a>
               <a
                 href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn btn-whatsapp"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.4 9.4 0 0 1 9.44 9.45c0 5.2-4.24 9.43-9.45 9.43m8.04-17.47A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.7l6.1-1.6a11.3 11.3 0 0 0 5.36 1.37h.01c6.26 0 11.36-5.1 11.37-11.37a11.3 11.3 0 0 0-3.33-8.04" />
                 </svg>
                 <span>Pedir por WhatsApp</span>
               </a>
@@ -529,7 +597,7 @@
                 rel="noopener noreferrer"
                 class="btn btn-secondary"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
                   <line x1="9" y1="3" x2="9" y2="18"></line>
                   <line x1="15" y1="6" x2="15" y2="21"></line>
@@ -544,20 +612,22 @@
   </main>
 
   <!-- ========================================================================
-       PIE DE PÁGINA (FOOTER)
+       PIE DE PÁGINA (FOOTER COMPARTIDO)
        ======================================================================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
+      <div class="footer-brand-info">
         <strong class="brand-name" style="color: #FFFFFF;">El Honesto Parra · Río Los Baños #459</strong>
         <p class="footer-copy">
-          Hamburguesas caseras, Papas Supremas, salchipapas y sándwiches en Puente Alto.
+          Hamburguesas caseras, Papas Supremas XL, salchipapas y sándwiches en Puente Alto, Santiago.
         </p>
       </div>
       <ul class="footer-links">
         <li><a href="#inicio">Inicio</a></li>
+        <li><a href="carta.html">Carta Digital</a></li>
         <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
         <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#ubicacion-horarios">Horarios y Contacto</a></li>
         <li>
           <a href="https://www.instagram.com/elhonestoparra/?hl=es" target="_blank" rel="noopener noreferrer">
             Instagram (@elhonestoparra)
@@ -567,6 +637,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
