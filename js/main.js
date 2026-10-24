@@ -1,4 +1,4 @@
-﻿/**
+/**
 
  * ============================================================================
 
@@ -30,7 +30,7 @@ const DEFAULT_STORE_CONFIG = {
 
   address: '[Dirección de tu Local, Comuna]',
 
-  whatsappNumber: '56912345678', // Reemplazar con el número de WhatsApp oficial (código 56 + 9 dígitos)
+  whatsappNumber: '56972652673', // Número oficial de WhatsApp de NexoWebs (+56 9 7265 2673)
 
   currencySymbol: '$',
 
@@ -1110,7 +1110,16 @@ function loadStoreConfig() {
 
     const saved = localStorage.getItem('hp_store_config_v2_clp');
 
-    return saved ? { ...DEFAULT_STORE_CONFIG, ...JSON.parse(saved) } : { ...DEFAULT_STORE_CONFIG };
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Si el número guardado anteriormente era el placeholder genérico o el de El Honesto Parra, actualizar al oficial de NexoWebs
+      if (parsed.whatsappNumber === '56912345678' || parsed.whatsappNumber === '56976881140') {
+        parsed.whatsappNumber = DEFAULT_STORE_CONFIG.whatsappNumber;
+      }
+      return { ...DEFAULT_STORE_CONFIG, ...parsed };
+    }
+
+    return { ...DEFAULT_STORE_CONFIG };
 
   } catch {
 
