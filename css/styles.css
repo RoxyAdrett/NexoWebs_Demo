@@ -150,6 +150,65 @@ button {
 /* ==========================================================================
    BARRA SUPERIOR DE HORARIOS & ESTADO
    ========================================================================== */
+
+/* ==========================================================================
+   BANNER DE PLANTILLA DEMOSTRATIVA NEXOWEBS
+   ========================================================================== */
+.template-demo-banner {
+  background: linear-gradient(90deg, #1E1B4B 0%, #312E81 100%);
+  color: #EEF2FF;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-bottom: 2px solid #818CF8;
+}
+
+.template-demo-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.template-demo-badge {
+  background-color: #4F46E5;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-demo-text {
+  flex: 1 1 300px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.template-demo-text code {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.82rem;
+  color: #FDE047;
+}
+
+.template-demo-link {
+  color: #FDE047;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.template-demo-link:hover {
+  color: #FFFFFF;
+}
+
 .status-top-bar {
   background-color: #450A0A;
   color: #FEF2F2;

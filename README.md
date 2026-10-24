@@ -1,46 +1,56 @@
-# El Honesto Parra (`@elhonestoparra`) — Sitio Web Oficial & Carta Online (NexoWebs Demo)
+# NexoWebs Demo — Rama `ejemplo` (Plantilla Web Gastronómica General)
 
-Sitio web nativo modular desarrollado aplicando el sistema de diseño **UI/UX Pro Max** (`design-system/el-honesto-parra/MASTER.md`), estructurado en dos páginas independientes:
-1. **`index.html`**: Sitio inicial e información oficial del local (**Hero**, **Sobre Nosotros**, **Pilares**, **Especialidades** y **Ubicación y Horarios**).
-2. **`carta.html`**: Carta interactiva independiente con personalizador de ingredientes/salsas, precios en **Pesos Chilenos (CLP)** y **generador de recibo directo a WhatsApp**.
+Esta rama (**`ejemplo`**) contiene la **plantilla base general y personalizable** desarrollada por **NexoWebs**, pensada para mostrar a cualquier restaurante, picada, cafetería o local de comida cómo funcionará su presencia digital profesional con:
+1. **`index.html` (Landing Page & Sobre Nosotros)**:
+   - Portada / Hero con titular atractivo y propuesta de valor del local.
+   - Historia del negocio (**Sobre Nosotros**), tradición culinaria y valores de cocina.
+   - Pilares fundamentales del servicio (Calidad, Porciones, Sabor, Delivery).
+   - Especialidades destacadas y accesos directos al menú.
+   - Ubicación exacta, horarios de atención e indicador en vivo (*Abierto/Cerrado*).
+   - Botón directo de contacto a WhatsApp y enlace a Instagram.
+2. **`carta.html` (Carta Online Interactiva & Pedidos WhatsApp)**:
+   - Menú por categorías (*Platos Principales*, *Acompañamientos*, *Sándwiches*, *Bebidas & Postres*).
+   - Modal para personalizar ingredientes, salsas y tamaño de cada plato.
+   - Carrito de compras persistente.
+   - Generador automático de comanda / recibo con envío directo al **WhatsApp del local** en Pesos Chilenos (CLP) sin intermediarios ni comisiones por venta.
+   - Botón *"Personalizar Carta"* para modificar en tiempo real el nombre del negocio, número de WhatsApp o agregar un plato nuevo de muestra.
 
 ---
 
-## Estructura del Proyecto
+## Dónde se Configuran los Datos de Cada Local
 
-```text
-├── index.html                               # Sitio inicial + Información del local (Sobre Nosotros, Pilares, Especialidades, Horarios)
-├── carta.html                               # Página exclusiva de la Carta Interactiva + Carrito + Recibo por WhatsApp (CLP)
-├── css/
-│   └── styles.css                           # Variables CSS, tokens de diseño UI/UX Pro Max, Container Queries y Top-Layer Dialogs
-├── js/
-│   └── main.js                              # Motor de catálogo, carrito persistente, recibo WhatsApp, enlaces profundos (?cat / ?item) y horario en vivo
-└── design-system/
-    └── el-honesto-parra/
-        └── MASTER.md                        # Fuente de verdad del sistema de diseño generado con UI/UX Pro Max
+En `js/main.js` se encuentra el objeto central de configuración:
+
+```javascript
+const DEFAULT_STORE_CONFIG = {
+  brandName: '[NOMBRE DE TU LOCAL]',
+  tagline: '[Tu Especialidad o Slogan Culinario]',
+  instagram: '@[tu_instagram]',
+  address: '[Calle y Número #123, Comuna, Ciudad]',
+  whatsappNumber: '56912345678', // Número de WhatsApp oficial para recibir pedidos
+  currencySymbol: '$',
+  deliveryFee: 2000 // Costo de envío en CLP
+};
 ```
 
----
-
-## Enlaces Profundos hacia la Carta (`carta.html`)
-
-Desde `index.html` o redes sociales puedes enlazar directamente a categorías o productos específicos de `carta.html`:
-- `carta.html?cat=burgers` — Filtra automáticamente **Hamburguesas Caseras**.
-- `carta.html?cat=papas` — Filtra automáticamente **Papas Supremas & Bajón**.
-- `carta.html?cat=clasicos` — Filtra automáticamente **Pollo Frito & Clásicos**.
-- `carta.html?item=hamburguesa-la-americana` — Abre directamente el personalizador de **La Americana**.
+Y en `index.html` los textos con corchetes `[EJEMPLO]` indican con total claridad dónde va:
+- `[NOMBRE DE TU LOCAL]`: Título y nombre comercial.
+- `[HISTORIA DE TU LOCAL]`: Sección "Sobre Nosotros" con el origen del restaurante y cita del dueño.
+- `[PILARES DE SERVICIO]`: Las 4 fortalezas que distinguen al negocio.
+- `[ESPECIALIDADES]`: Las 3 líneas principales de preparaciones.
+- `[HORARIOS Y CONTACTO]`: Días, horas, teléfono y mapa de Google Maps.
 
 ---
 
-## Información Real Incluida (`@elhonestoparra`)
+## Cómo Ejecutar Localmente en tu PC
 
-- **Dirección**: Río Los Baños #459, Puente Alto, Región Metropolitana.
-- **Especialidades**:
-  - **Hamburguesas Caseras**: *La Americana* (aros de cebolla, cheddar, tocino y BBQ) y *La Pobre* (queso fundido, aros de cebolla y huevos fritos).
-  - **Papas Fritas Cargadas**: *La Suprema* (cheddar, tocino y tomate), *La Mediterránea* y salchipapas.
-  - **Clásicos del Bajón**: Pollo frito, hot dogs, sándwiches y empanadas de queso.
-- **Horario de atención**: Lunes a Domingo de 17:30 a 23:30 hrs (Zona horaria `America/Santiago`).
-- **Contacto y Pedidos**:
-  - WhatsApp / Teléfono: `+56 9 7688 1140`
-  - Delivery: Directo en Puente Alto y vía Rappi.
-  - Instagram: [@elhonestoparra](https://www.instagram.com/elhonestoparra/?hl=es)
+Para probar la página en tu navegador de forma local:
+
+```bash
+# Iniciar un servidor local rápido con Python:
+python -m http.server 8080
+```
+
+Luego abre en tu navegador:
+- Página Principal (Landing + Sobre Nosotros): **http://localhost:8080/index.html**
+- Carta Digital Interactiva: **http://localhost:8080/carta.html**

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carta Digital &amp; Pedidos | El Honesto Parra (@elhonestoparra)</title>
-  <meta name="description" content="Carta digital interactiva de El Honesto Parra en Puente Alto. Personaliza tus hamburguesas caseras La Americana y La Pobre, Papas Supremas XL, salchipapas y envía tu recibo en pesos chilenos directo a WhatsApp." />
+  <title>Carta Digital &amp; Pedidos | [NOMBRE DE TU LOCAL]</title>
+  <meta name="description" content="Carta digital interactiva de [NOMBRE DEL LOCAL] en Puente Alto. Personaliza tus hamburguesas caseras La Americana y La Pobre, Papas Supremas XL, salchipapas y envía tu recibo en pesos chilenos directo a WhatsApp." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
@@ -13,6 +13,18 @@
 <body>
   <!-- Accesibilidad: Saltar directamente al menú -->
   <a href="#menu-pedidos" class="skip-link">Saltar directamente a la carta</a>
+
+  <!-- Banner Explicativo Modo Plantilla / Demo -->
+  <div class="template-demo-banner" role="banner" aria-label="Información de la plantilla general">
+    <div class="container template-demo-banner__inner">
+      <span class="template-demo-badge">PLANTILLA BASE NEXOWEBS</span>
+      <p class="template-demo-text">
+        <strong>Modo Demostración General:</strong> Carta digital interactiva con personalizador de platos, carrito y comanda directa a WhatsApp. 100% adaptable a cualquier restaurante o local de comida.
+      </p>
+      <a href="index.html" class="template-demo-link">← Volver a Página Principal</a>
+    </div>
+  </div>
+
 
   <!-- Live region para lectores de pantalla (UI/UX Pro Max: Contextual Live Badge Updates) -->
   <div id="cartLiveStatus" role="status" aria-atomic="true" class="sr-only">
@@ -24,13 +36,13 @@
     <div class="container status-top-bar__inner">
       <div class="status-indicator-wrap">
         <span id="top-open-dot" class="status-dot-pulse" aria-hidden="true"></span>
-        <span id="top-open-text"><strong>Horario de Atención:</strong> Lunes a Domingo de 17:30 a 23:30 hrs · Río Los Baños #459, Puente Alto</span>
+        <span id="top-open-text"><strong>Horario de Atención:</strong> Lunes a Domingo de 17:30 a 23:30 hrs · [Dirección de tu Local, Comuna]</span>
       </div>
       <div class="status-top-bar__links">
         <a href="index.html" class="top-social-link">← Volver a Información del Local</a>
         <span aria-hidden="true">·</span>
         <a href="https://www.instagram.com/elhonestoparra/?hl=es" target="_blank" rel="noopener noreferrer" class="top-social-link">
-          @elhonestoparra
+          @[tu_instagram]
         </a>
       </div>
     </div>
@@ -41,10 +53,10 @@
        ======================================================================== -->
   <header class="site-header">
     <div class="container navbar">
-      <a href="index.html" class="brand-logo" aria-label="El Honesto Parra - Volver al Inicio">
+      <a href="index.html" class="brand-logo" aria-label="[NOMBRE DEL LOCAL] - Volver al Inicio">
         <span class="brand-icon" aria-hidden="true">HP</span>
         <span class="brand-text">
-          <span class="brand-name">El Honesto Parra</span>
+          <span class="brand-name">[NOMBRE DEL LOCAL]</span>
           <span class="brand-tag">Carta Digital · Puente Alto</span>
         </span>
       </a>
@@ -110,12 +122,12 @@
       </ul>
       <div class="mobile-menu-ctas">
         <a
-          href="https://wa.me/56976881140?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
+          href="https://wa.me/56912345678?text=Hola%20El%20Honesto%20Parra,%20quiero%20hacer%20un%20pedido"
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-whatsapp btn-block"
         >
-          WhatsApp Directo (+56 9 7688 1140)
+          WhatsApp Directo (+56 9 XXXX XXXX)
         </a>
         <a href="index.html" class="btn btn-secondary btn-block">
           Volver a Inicio
@@ -188,9 +200,9 @@
         <div class="menu-controls" role="region" aria-label="Controles de filtrado de la carta">
           <div class="menu-controls__top">
             <div class="menu-section__title-group">
-              <span class="section-badge">Menú Completo · @elhonestoparra</span>
+              <span class="section-badge">Menú Completo · @[tu_instagram]</span>
               <h2 id="menu-heading" class="section-title">Nuestras Preparaciones</h2>
-              <p id="resultsCounter" class="results-counter" aria-live="polite">Cargando las especialidades de El Honesto Parra...</p>
+              <p id="resultsCounter" class="results-counter" aria-live="polite">Cargando las especialidades de [NOMBRE DEL LOCAL]...</p>
             </div>
 
             <div class="search-and-sort">
@@ -593,11 +605,11 @@
         <div class="form-grid">
           <div class="field-group">
             <label for="configBrandName" class="field-label">Nombre del Local</label>
-            <input type="text" id="configBrandName" class="input" value="El Honesto Parra" required />
+            <input type="text" id="configBrandName" class="input" value="[NOMBRE DEL LOCAL]" required />
           </div>
           <div class="field-group">
-            <label for="configWhatsapp" class="field-label">WhatsApp Receptor (ej. 56976881140)</label>
-            <input type="text" id="configWhatsapp" class="input" value="56976881140" required />
+            <label for="configWhatsapp" class="field-label">WhatsApp Receptor (ej. 56912345678)</label>
+            <input type="text" id="configWhatsapp" class="input" value="56912345678" required />
           </div>
         </div>
 
@@ -650,7 +662,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand-info">
-        <strong class="brand-name" style="color: #FFFFFF;">El Honesto Parra · Río Los Baños #459</strong>
+        <strong class="brand-name" style="color: #FFFFFF;">[NOMBRE DEL LOCAL] · Río Los Baños #459</strong>
         <p class="footer-copy">
           Hamburguesas caseras, Papas Supremas XL, salchipapas y sándwiches en Puente Alto, Santiago.
         </p>
@@ -662,7 +674,7 @@
         <li><a href="index.html#ubicacion-horarios">Horarios y Contacto</a></li>
         <li>
           <a href="https://www.instagram.com/elhonestoparra/?hl=es" target="_blank" rel="noopener noreferrer">
-            Instagram (@elhonestoparra)
+            Instagram (@[tu_instagram])
           </a>
         </li>
       </ul>

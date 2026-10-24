@@ -1,19 +1,23 @@
 /**
  * ============================================================================
- * EL HONESTO PARRA (@elhonestoparra) - MOTOR WEB NATIVO & PEDIDOS WHATSAPP
+ * EL HONESTO PARRA (@[tu_instagram]) - MOTOR WEB NATIVO & PEDIDOS WHATSAPP
  * Archivo: js/main.js
  * Ubicación: Río Los Baños #459, Puente Alto, Región Metropolitana
  * ============================================================================
  */
 
+/**
+ * CONFIGURACIÓN CENTRAL DE LA PLANTILLA GENERAL (NexoWebs)
+ * Reemplaza los siguientes datos por la información real del restaurante o local:
+ */
 const DEFAULT_STORE_CONFIG = {
-  brandName: 'El Honesto Parra',
-  tagline: 'Hamburguesas Caseras & Bajón Honesto',
-  instagram: '@elhonestoparra',
-  address: 'Río Los Baños #459, Puente Alto, Región Metropolitana',
-  whatsappNumber: '56976881140', // WhatsApp oficial para pedidos
+  brandName: '[NOMBRE DE TU LOCAL]',
+  tagline: '[Tu Especialidad o Slogan Culinario]',
+  instagram: '@[tu_instagram]',
+  address: '[Calle y Número #123, Comuna, Ciudad]',
+  whatsappNumber: '56912345678', // Reemplazar con el número de WhatsApp oficial (código 56 + 9 dígitos)
   currencySymbol: '$',
-  deliveryFee: 1990 // CLP
+  deliveryFee: 2000 // CLP
 };
 
 const CATEGORIES = [
@@ -1383,7 +1387,7 @@ function initStoreCustomizer() {
         featured: true,
         tags: ['popular'],
         svgType: svgMap[dishCategory] || 'burger',
-        description: dishDesc || 'Especialidad casera agregada al menú de El Honesto Parra.',
+        description: dishDesc || 'Especialidad casera agregada al menú de [NOMBRE DEL LOCAL].',
         sizes: [{ id: 'regular', label: 'Porción Regular', delta: 0 }],
         baseIngredients: ['Preparación al Momento'],
         extras: [{ id: 'extra-cheddar', label: 'Extra Queso Cheddar', price: 1000 }]
