@@ -198,7 +198,7 @@ button {
 }
 
 .template-demo-text {
-  flex: 1 1 min(100%, 280px);
+  flex: 1 1 auto;
   min-width: 0;
   margin: 0;
   line-height: 1.4;
@@ -260,7 +260,7 @@ button {
   align-items: center;
   gap: 0.45rem;
   min-width: 0;
-  flex: 1 1 260px;
+  flex: 1 1 auto;
 }
 
 .status-dot-pulse {
@@ -2565,20 +2565,47 @@ button {
   }
 }
 
-/* En tablets y móviles grandes (< 768px): ocultar texto secundario de marca si hay poco espacio */
+/* En tablets y móviles grandes (< 768px): diseño compacto y fluido sin espacios vacíos */
 @media (max-width: 640px) {
   .brand-tag {
     display: none !important;
   }
+  .status-top-bar {
+    padding-block: 0.35rem !important;
+  }
   .status-top-bar__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.25rem !important;
+  }
+  .status-indicator-wrap {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    width: 100% !important;
   }
   .status-top-bar__links {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.75rem !important;
+  }
+  .template-demo-banner__inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.35rem !important;
+  }
+  .template-demo-text {
+    flex: 0 0 auto !important;
+    height: auto !important;
+    width: 100% !important;
+    font-size: 0.78rem !important;
+  }
+  .template-demo-actions {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
 }
 
