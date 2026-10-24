@@ -2531,197 +2531,107 @@ function validateAndSubmitCheckout(event) {
    ============================================================================ */
 
 function checkStoreOpenStatus() {
-
   const statusPill = document.getElementById('open-status');
-
   const statusText = document.getElementById('open-status-text');
-
   const topDot = document.getElementById('top-open-dot');
-
   const topText = document.getElementById('top-open-text');
-
-
+  const addressLabel = state.config?.address || '[Dirección de tu Local, Comuna]';
 
   try {
-
     const now = new Date();
-
     const formatter = new Intl.DateTimeFormat('en-US', {
-
       timeZone: 'America/Santiago',
-
       hour: 'numeric',
-
       minute: 'numeric',
-
       hour12: false
-
     });
 
-
-
     const parts = formatter.formatToParts(now);
-
-    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '18', 10);
-
+    const hour = parseInt(parts.find((p) => p.type === 'hour')?.value || '14', 10);
     const minute = parseInt(parts.find((p) => p.type === 'minute')?.value || '0', 10);
-
     const totalMinutes = hour * 60 + minute;
 
-
-
-    // 17:30 (1050 min) a 23:30 (1410 min)
-
-    const isOpen = totalMinutes >= 17 * 60 + 30 && totalMinutes <= 23 * 60 + 30;
-
-
+    // Horario de demostración general: 12:00 (720 min) a 23:00 (1380 min)
+    const isOpen = totalMinutes >= 12 * 60 && totalMinutes <= 23 * 60;
 
     if (isOpen) {
-
       if (statusPill) statusPill.classList.remove('closed');
-
-      if (statusText) statusText.textContent = 'Abierto ahora · 17:30 a 23:30 hrs';
-
+      if (statusText) statusText.textContent = '[Abierto Ahora · 12:00 a 23:00 hrs]';
       if (topDot) topDot.classList.remove('closed');
-
-      if (topText) topText.innerHTML = `<strong>Abierto ahora:</strong> Lunes a Domingo de 12:00 a 23:00 hrs · ${state.storeConfig.address}`;
-
+      if (topText) topText.innerHTML = `<strong>[HORARIO DE ATENCIÓN]:</strong> [Lunes a Domingo de 12:00 a 23:00 hrs] · ${addressLabel}`;
     } else {
-
       if (statusPill) statusPill.classList.add('closed');
-
-      if (statusText) statusText.textContent = 'Abre hoy de 17:30 a 23:30 hrs';
-
+      if (statusText) statusText.textContent = '[Abre hoy de 12:00 a 23:00 hrs]';
       if (topDot) topDot.classList.add('closed');
-
-      if (topText) topText.innerHTML = `<strong>Abre hoy a las 12:00 hrs:</strong> Atención de 12:00 a 23:00 hrs · ${state.storeConfig.address}`;
-
+      if (topText) topText.innerHTML = `<strong>[HORARIO DE ATENCIÓN]:</strong> [Lunes a Domingo de 12:00 a 23:00 hrs] · ${addressLabel}`;
     }
-
   } catch {
-
-    if (statusText) statusText.textContent = 'Atención de 17:30 a 23:30 hrs';
-
+    if (statusText) statusText.textContent = '[Atención de 12:00 a 23:00 hrs]';
   }
-
 }
-
-
 
 /* ============================================================================
-
    PERSONALIZACIÓN DEL LOCAL (Modal #storeConfigDialog & Persistencia)
-
    ============================================================================ */
-
 function applyStoreBranding() {
-
   const { brandName, tagline, deliveryFee, whatsappNumber } = state.config;
-
-  const brandTitleEl = document.getElementById('brandNameText');
-
-  const brandTaglineEl = document.getElementById('brandTaglineText');
-
+  const brandTitleEl = document.getElementById('brandNameText') || document.querySelector('.navbar .brand-name');
+  const brandTaglineEl = document.getElementById('brandTaglineText') || document.querySelector('.navbar .brand-tag');
   const footerBrandEl = document.getElementById('footerBrandName');
-
   const deliveryFeeBadge = document.getElementById('deliveryFeeBadge');
-
   const cartDeliveryFee = document.getElementById('cartDeliveryFee');
 
-
-
-  if (brandTitleEl) brandTitleEl.textContent = brandName;
-
-  if (brandTaglineEl) brandTaglineEl.textContent = tagline;
-
-  if (footerBrandEl) footerBrandEl.textContent = brandName;
-
+  if (brandTitleEl && brandName) brandTitleEl.textContent = brandName;
+  if (brandTaglineEl && tagline) brandTaglineEl.textContent = tagline;
+  if (footerBrandEl && brandName) footerBrandEl.textContent = brandName;
   if (deliveryFeeBadge) deliveryFeeBadge.textContent = `+${formatPrice(deliveryFee)}`;
-
   if (cartDeliveryFee) cartDeliveryFee.textContent = formatPrice(deliveryFee);
 
-
-
   if (whatsappNumber) {
-
     const cleanPhone = String(whatsappNumber).replace(/\D/g, '');
-
     const waDisplay = document.getElementById('storeWhatsAppDisplay');
-
     if (waDisplay) waDisplay.textContent = `+${cleanPhone}`;
-
   }
-
 }
 
-
-
 function initStoreCustomizer() {
-
   const openBtn = document.getElementById('customizeBrandBtn');
-
   const dialog = document.getElementById('storeConfigDialog');
-
   const form = document.getElementById('storeConfigForm');
-
   const resetBtn = document.getElementById('resetStoreConfigBtn');
-
-
 
   if (!openBtn || !dialog || !form) return;
 
-
-
   openBtn.addEventListener('click', () => {
-
-    const nameIn = document.getElementById('cfgBrandName');
-
+    const nameIn = document.getElementById('configBrandName') || document.getElementById('cfgBrandName');
     const tagIn = document.getElementById('cfgTagline');
-
-    const feeIn = document.getElementById('cfgDeliveryFee');
-
-    const waIn = document.getElementById('cfgWhatsappNumber');
-
-
+    const feeIn = document.getElementById('configDeliveryFee') || document.getElementById('cfgDeliveryFee');
+    const waIn = document.getElementById('configWhatsapp') || document.getElementById('cfgWhatsappNumber');
 
     if (nameIn) nameIn.value = state.config.brandName;
-
     if (tagIn) tagIn.value = state.config.tagline;
-
     if (feeIn) feeIn.value = state.config.deliveryFee;
-
     if (waIn) waIn.value = state.config.whatsappNumber;
 
-
-
     dialog.showModal();
-
   });
 
-
-
   form.addEventListener('submit', (event) => {
-
     event.preventDefault();
 
+    const nameEl = document.getElementById('configBrandName') || document.getElementById('cfgBrandName');
+    const tagEl = document.getElementById('cfgTagline');
+    const feeEl = document.getElementById('configDeliveryFee') || document.getElementById('cfgDeliveryFee');
+    const waEl = document.getElementById('configWhatsapp') || document.getElementById('cfgWhatsappNumber');
 
-
-    const newBrand = document.getElementById('cfgBrandName')?.value.trim();
-
-    const newTag = document.getElementById('cfgTagline')?.value.trim();
-
-    const newFee = Number(document.getElementById('cfgDeliveryFee')?.value);
-
-    const newWa = document.getElementById('cfgWhatsappNumber')?.value.replace(/\D/g, '');
-
-
+    const newBrand = nameEl?.value.trim();
+    const newTag = tagEl?.value.trim();
+    const newFee = Number(feeEl?.value);
+    const newWa = waEl?.value.replace(/\D/g, '');
 
     if (newBrand) state.config.brandName = newBrand;
-
     if (newTag) state.config.tagline = newTag;
-
     if (!Number.isNaN(newFee) && newFee >= 0) state.config.deliveryFee = Math.round(newFee);
-
     if (newWa && newWa.length >= 8) state.config.whatsappNumber = newWa;
 
 
