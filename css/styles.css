@@ -205,6 +205,19 @@ button {
 }
 
 .template-demo-link:hover {
+.header-cart-btn {
+  min-width: 175px;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.template-demo-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
   color: #FFFFFF;
 }
 
