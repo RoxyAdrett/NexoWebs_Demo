@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;family=Work+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20261024" />
+  <link rel="stylesheet" href="css/styles.css?v=20261024b" />
 </head>
 <body>
   <!-- Accesibilidad: Saltar directamente al menú -->
   <a href="#menu-pedidos" class="skip-link">Saltar directamente a la carta</a>
 
-      <!-- Banner Explicativo Modo Plantilla / Demo (Carta) -->
+        <!-- Banner Explicativo Modo Plantilla / Demo (Carta) -->
   <div class="template-demo-banner" role="banner" aria-label="Información de la plantilla general">
     <div class="container template-demo-banner__inner">
       <span class="template-demo-badge">PLANTILLA BASE NEXOWEBS</span>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Barra Superior de Estado y Horario en Vivo -->
+  <!-- Barra Superior de Estado y Horario en Vivo (IDENTICA) -->
   <aside class="status-top-bar" aria-label="Aviso de atención y pedidos">
     <div class="container status-top-bar__inner">
       <div class="status-indicator-wrap">
@@ -48,7 +48,7 @@
   </aside>
 
   <!-- ========================================================================
-       ENCABEZADO / NAVBAR COMPARTIDO
+       ENCABEZADO / NAVBAR UNIFICADO (IDENTICO PARA TODAS LAS PAGINAS)
        ======================================================================== -->
   <header class="site-header">
     <div class="container navbar">
@@ -63,16 +63,16 @@
       <nav aria-label="Navegación principal" class="desktop-nav">
         <ul class="nav-links">
           <li><a href="index.html#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="carta.html" class="nav-link">Carta</a></li>
           <li><a href="index.html#sobre-nosotros" class="nav-link">Sobre Nosotros</a></li>
           <li><a href="index.html#pilares" class="nav-link">Nuestra Filosofía</a></li>
           <li><a href="index.html#especialidades" class="nav-link">Especialidades</a></li>
           <li><a href="index.html#ubicacion-horarios" class="nav-link">Horarios y Contacto</a></li>
-          <li><a href="carta.html" class="nav-link nav-link--cta is-highlight" aria-current="page">Carta Digital</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <!-- Acceso al Carrito con contador -->
+        <!-- Acceso al Carrito / Pedido con contador -->
         <button type="button" id="headerCartBtn" class="btn btn-primary header-cart-btn" aria-label="Abrir resumen de tu pedido">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
@@ -120,7 +120,7 @@
     <div id="mobile-menu" class="mobile-menu">
       <ul>
         <li><a href="index.html#inicio">Inicio</a></li>
-        <li><a href="carta.html">Carta Digital</a></li>
+        <li><a href="carta.html">Carta</a></li>
         <li><a href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
         <li><a href="index.html#pilares">Nuestra Filosofía</a></li>
         <li><a href="index.html#especialidades">Especialidades</a></li>
