@@ -74,14 +74,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
@@ -1352,7 +1345,8 @@ button {
    ========================================================================== */
 .order-sidebar {
   position: sticky;
-  top: 5.5rem;
+  top: calc(5rem + var(--space-md));
+  z-index: 40;
 }
 
 .order-card {
