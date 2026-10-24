@@ -205,10 +205,7 @@ button {
 }
 
 .template-demo-link:hover {
-.header-cart-btn {
-  min-width: 175px;
-  justify-content: center;
-  white-space: nowrap;
+  color: #FFFFFF;
 }
 
 .template-demo-actions {
@@ -218,7 +215,10 @@ button {
   flex-wrap: wrap;
 }
 
-  color: #FFFFFF;
+.header-cart-btn {
+  min-width: 175px;
+  justify-content: center;
+  white-space: nowrap;
 }
 
 .status-top-bar {
@@ -341,18 +341,6 @@ button {
   .desktop-nav {
     display: block;
   }
-}
-
-@media (min-width: 1024px) {
-  .desktop-nav {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .desktop-nav {
-    display: block;
-  }
-}
 }
 
 .nav-links {
@@ -2433,4 +2421,79 @@ button {
       transform: none;
     }
   }
+}
+
+/* ==========================================================================
+   MEJORAS RESPONSIVAS MULTI-DISPOSITIVO (Móvil, Tablet y Desktop)
+   ========================================================================== */
+
+/* En pantallas intermedias (1024px a 1200px): compactar navbar para evitar desbordes */
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .nav-links {
+    gap: 0.2rem !important;
+  }
+  .nav-link {
+    padding: 0.4rem 0.55rem !important;
+    font-size: 0.84rem !important;
+  }
+  .header-cart-btn {
+    min-width: auto !important;
+    padding: 0.5rem 0.85rem !important;
+  }
+}
+
+/* En tablets y móviles grandes (< 768px): ocultar texto secundario de marca si hay poco espacio */
+@media (max-width: 640px) {
+  .brand-tag {
+    display: none !important;
+  }
+  .status-top-bar__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .status-top-bar__links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* En teléfonos móviles pequeños (< 480px): optimizar header para máxima legibilidad */
+@media (max-width: 480px) {
+  .navbar {
+    min-height: 3.75rem;
+  }
+  .brand-name {
+    font-size: 1.05rem !important;
+  }
+  .brand-icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.85rem !important;
+  }
+  .header-cart-btn {
+    min-width: auto !important;
+    padding: 0.45rem 0.7rem !important;
+    font-size: 0.85rem !important;
+  }
+  .header-cart-btn__total {
+    display: none !important;
+  }
+  .template-demo-banner {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .template-demo-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Resaltado del enlace activo en el menú móvil desplegable */
+.mobile-menu a[aria-current="page"],
+.mobile-menu a.is-active {
+  background-color: #FEE2E2 !important;
+  color: var(--color-primary) !important;
+  border-left: 4px solid var(--color-primary) !important;
 }
