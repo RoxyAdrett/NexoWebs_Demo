@@ -1,8 +1,7 @@
 /**
  * ============================================================================
- * EL HONESTO PARRA (@[tu_instagram]) - MOTOR WEB NATIVO & PEDIDOS WHATSAPP
- * Archivo: js/main.js
- * Ubicación: Río Los Baños #459, Puente Alto, Región Metropolitana
+ * PLANTILLA BASE WEB GASTRONÓMICA - NEXOWEBS DEMO (PEDIDOS A WHATSAPP)
+ * Modelo adaptable a cualquier local, restaurante o cafetería
  * ============================================================================
  */
 
@@ -29,7 +28,7 @@ const CATEGORIES = [
 ];
 
 const GLOBAL_SAUCES = [
-  'Salsa Honesto (Casa)',
+  'Salsa Especial de la Casa',
   'Mayo Ajo Asado',
   'BBQ Ahumada',
   'Salsa Cheddar Tibia',
@@ -71,7 +70,7 @@ const MENU_ITEMS = [
     featured: true,
     tags: ['popular'],
     svgType: 'burger',
-    description: 'El clásico chileno al estilo Parra: medallón casero, doble huevo frito con yema tierna, aros de cebolla y queso derretido.',
+    description: 'El clásico chileno al estilo de la casa: medallón casero, doble huevo frito con yema tierna, aros de cebolla y queso derretido.',
     sizes: [
       { id: 'simple', label: 'Simple Casera', delta: 0 },
       { id: 'doble', label: 'Doble Medallón', delta: 2500 }
@@ -107,7 +106,7 @@ const MENU_ITEMS = [
   },
   {
     id: 'hamburguesa-doble-smash',
-    name: 'Doble Parra Smash Especial',
+    name: 'Doble Smash Especial de la Casa',
     category: 'burgers',
     price: 8990,
     calories: 940,
@@ -115,7 +114,7 @@ const MENU_ITEMS = [
     featured: true,
     tags: ['popular', 'nuevo'],
     svgType: 'combo',
-    description: 'Doble carne smash con costra caramelizada, cuádruple cheddar americano, tocino en tiras y salsa secreta Honesto.',
+    description: 'Doble carne smash con costra caramelizada, cuádruple cheddar americano, tocino en tiras y salsa secreta de la casa.',
     sizes: [
       { id: 'doble', label: 'Doble Smash', delta: 0 },
       { id: 'triple', label: 'Upgrade a Triple Smash', delta: 2500 }
@@ -149,7 +148,7 @@ const MENU_ITEMS = [
   },
   {
     id: 'hamburguesa-green-veggie',
-    name: 'Green Parra Plant-Based',
+    name: 'Hamburguesa Plant-Based de la Casa',
     category: 'burgers',
     price: 6990,
     calories: 590,
@@ -210,8 +209,8 @@ const MENU_ITEMS = [
     ]
   },
   {
-    id: 'salchipapas-parra',
-    name: 'Salchipapas El Honesto (Compartir)',
+    id: 'salchipapas-especial',
+    name: 'Salchipapas Especiales (Compartir)',
     category: 'papas',
     price: 5490,
     calories: 810,
@@ -268,7 +267,7 @@ const MENU_ITEMS = [
     baseIngredients: ['Rebozado Crujiente con Especias'],
     extras: [
       { id: 'papas-acompanamiento', label: 'Sumar Papas Medianas', price: 1900 },
-      { id: 'salsa-extra', label: 'Pote de Salsa Honesto extra', price: 800 }
+      { id: 'salsa-extra', label: 'Pote de Salsa Especial de la Casa', price: 800 }
     ]
   },
   {
@@ -1137,7 +1136,7 @@ function openCheckoutModal() {
   const preview = document.getElementById('checkoutOrderPreview');
   if (preview) {
     preview.innerHTML = `
-      <strong>Modalidad: ${state.fulfillmentMode === 'delivery' ? 'Delivery en Puente Alto' : 'Retiro en Local (Río Los Baños #459)'}</strong>
+      <strong>Modalidad: ${state.fulfillmentMode === 'delivery' ? 'Delivery a Domicilio' : 'Retiro en el Local'}</strong>
       <br />
       <span>${totalCount} ${totalCount === 1 ? 'producto' : 'productos'} • Total a pagar: <strong>${formatPrice(grandTotal)}</strong></span>
     `;
@@ -1174,7 +1173,7 @@ function buildWhatsAppReceipt({ orderId, customerName, address, paymentMethod, c
     `Fecha: ${dateText} (Chile)`,
     divider,
     `*Cliente:* ${customerName}`,
-    `*Modalidad:* ${isDelivery ? 'Delivery a Domicilio' : 'Retiro en Local (Río Los Baños #459)'}`,
+    `*Modalidad:* ${isDelivery ? 'Delivery a Domicilio' : 'Retiro en el Local'}`,
     ...(isDelivery ? [`*Dirección:* ${address}`] : []),
     `*Método de Pago:* ${paymentMethod}`,
     ...(comments ? [`*Comentarios:* ${comments}`] : []),
@@ -1209,7 +1208,7 @@ function validateAndSubmitCheckout(event) {
     errors.push({ fieldId: 'customerName', errorId: 'customerNameError', msg: 'Ingresa tu nombre para identificar el pedido.' });
   }
   if (state.fulfillmentMode === 'delivery' && !addressInput.value.trim()) {
-    errors.push({ fieldId: 'customerAddress', errorId: 'customerAddressError', msg: 'Indica la dirección en Puente Alto para el delivery.' });
+    errors.push({ fieldId: 'customerAddress', errorId: 'customerAddressError', msg: 'Indica tu dirección completa para el delivery.' });
   }
 
   const errorSummary = document.getElementById('checkoutErrorSummary');
@@ -1292,12 +1291,12 @@ function checkStoreOpenStatus() {
       if (statusPill) statusPill.classList.remove('closed');
       if (statusText) statusText.textContent = 'Abierto ahora · 17:30 a 23:30 hrs';
       if (topDot) topDot.classList.remove('closed');
-      if (topText) topText.innerHTML = '<strong>Abierto ahora:</strong> Lunes a Domingo de 17:30 a 23:30 hrs · Río Los Baños #459, Puente Alto';
+      if (topText) topText.innerHTML = `<strong>Abierto ahora:</strong> Lunes a Domingo de 12:00 a 23:00 hrs · ${state.storeConfig.address}`;
     } else {
       if (statusPill) statusPill.classList.add('closed');
       if (statusText) statusText.textContent = 'Abre hoy de 17:30 a 23:30 hrs';
       if (topDot) topDot.classList.add('closed');
-      if (topText) topText.innerHTML = '<strong>Abre hoy a las 17:30 hrs:</strong> Atención de 17:30 a 23:30 hrs · Río Los Baños #459, Puente Alto';
+      if (topText) topText.innerHTML = `<strong>Abre hoy a las 12:00 hrs:</strong> Atención de 12:00 a 23:00 hrs · ${state.storeConfig.address}`;
     }
   } catch {
     if (statusText) statusText.textContent = 'Atención de 17:30 a 23:30 hrs';
