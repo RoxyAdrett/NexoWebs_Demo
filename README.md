@@ -54,3 +54,12 @@ python -m http.server 8080
 Luego abre en tu navegador:
 - Página Principal (Landing + Sobre Nosotros): **http://localhost:8080/index.html**
 - Carta Digital Interactiva: **http://localhost:8080/carta.html**
+
+
+---
+
+## Licencia y Derechos de Autor
+
+Copyright &copy; 2026 **NexoWebs**. Todos los derechos reservados.
+
+El código fuente de este proyecto se exhibe únicamente con fines demostrativos y de muestra. Queda expresamente prohibida su copia, distribución o comercialización por parte de terceros sin previa autorización escrita de NexoWebs.
