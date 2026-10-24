@@ -351,13 +351,19 @@ button {
 }
 
 .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   text-decoration: none;
   color: var(--color-foreground);
   font-size: 0.925rem;
   font-weight: 700;
-  padding: 0.5rem 0.85rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-sm);
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
+  line-height: 1.2;
 }
 
 .nav-link:hover {
@@ -367,7 +373,19 @@ button {
 
 .nav-link.is-highlight {
   color: var(--color-primary);
-  background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  background-color: #FEE2E2;
+  border-color: var(--color-border);
+}
+
+.nav-link--cta {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.nav-link--cta.is-highlight {
+  background-color: #FEE2E2;
+  border-color: var(--color-border);
+  color: var(--color-primary);
 }
 
 .nav-actions {
