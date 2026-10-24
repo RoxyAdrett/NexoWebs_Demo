@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    PLANTILLA BASE WEB GASTRONÓMICA - NEXOWEBS DEMO (SISTEMA UI/UX PRO MAX)
    Propósito: Modelo 100% personalizable para cualquier restaurante o local
    ========================================================================== */
@@ -74,11 +74,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 5rem;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 body {
@@ -86,8 +84,6 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
-  overflow-x: hidden;
-  max-width: 100%;
 }
 
 img,
@@ -309,7 +305,7 @@ button {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
   background-color: color-mix(in srgb, var(--color-surface) 95%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
