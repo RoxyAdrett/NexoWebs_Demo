@@ -22,13 +22,13 @@
 
 const DEFAULT_STORE_CONFIG = {
 
-  brandName: '[NOMBRE DE TU LOCAL]',
+  brandName: '[NOMBRE DEL LOCAL]',
 
-  tagline: '[Tu Especialidad o Slogan Culinario]',
+  tagline: '[Tu Slogan o Especialidad] · [Tu Ciudad]',
 
   instagram: '@[tu_instagram]',
 
-  address: '[Calle y Número #123, Comuna, Ciudad]',
+  address: '[Dirección de tu Local, Comuna]',
 
   whatsappNumber: '56912345678', // Reemplazar con el número de WhatsApp oficial (código 56 + 9 dígitos)
 
@@ -2575,8 +2575,9 @@ function checkStoreOpenStatus() {
    ============================================================================ */
 function applyStoreBranding() {
   const { brandName, tagline, deliveryFee, whatsappNumber } = state.config;
-  const brandTitleEl = document.getElementById('brandNameText') || document.querySelector('.navbar .brand-name');
-  const brandTaglineEl = document.getElementById('brandTaglineText') || document.querySelector('.navbar .brand-tag');
+  const hasCustomConfig = Boolean(localStorage.getItem('hp_store_config_v2_clp'));
+  const brandTitleEl = document.getElementById('brandNameText') || (hasCustomConfig ? document.querySelector('.navbar .brand-name') : null);
+  const brandTaglineEl = document.getElementById('brandTaglineText') || (hasCustomConfig ? document.querySelector('.navbar .brand-tag') : null);
   const footerBrandEl = document.getElementById('footerBrandName');
   const deliveryFeeBadge = document.getElementById('deliveryFeeBadge');
   const cartDeliveryFee = document.getElementById('cartDeliveryFee');
